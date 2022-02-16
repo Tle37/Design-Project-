@@ -45,4 +45,4 @@ def sign_up():
 
 @auth.route('/logout')
 def logout():
- return "<p>Logout</p>"
+    return
