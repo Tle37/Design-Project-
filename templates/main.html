@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="{% static 'styles/style.css' %}"/>
     <title>GreenThumbs. Share your herbs!</title>
-  </head>
+</head>
 
-  <body>
-    {% include 'navbar.html' %}
+<body>
+{% include 'navbar.html' %}
 
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li>{{ message }} </li>
-            {% endfor %}
-        </ul>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
 
-    {% endif %}
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+{% block content %}
 
-    {% block content %}
-
-    {% endblock %}
-
-    <script src="{% static 'js/script.js' %}"></script>
-  </body>
+{% endblock %}
+<script src="{% static 'js/script.js' %}"></script>
+</body>
 </html>

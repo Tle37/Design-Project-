@@ -3,48 +3,126 @@
 
 {% block content %}
 <main class="profile-page layout layout--3">
-  <div class="container">
-      <!-- Topics Start -->
-      {% include 'base/topics_base.html' %}
-      <!-- Topics End -->
+    <div class="container">
 
-      <!-- Room List Start -->
-      <div class="roomList">
-        <div class="profile">
-          <div class="profile__avatar">
-            <div class="avatar avatar--large active">
-              <img src="{{user.avatar.url}}" />
+        <!-- Topics Start -->
+        {% include 'base/topics_base.html' %}
+        <!-- Topics End -->
+
+        <!-- Room List Start -->
+        <div class="roomList">
+            <div class="profile">
+                <div class="profile__avatar">
+                    <div class="avatar avatar--large active">
+                        <img src="{{user.avatar.url}}"/>
+                    </div>
+                </div>
+                <div class="profile__info">
+                    <h3>{{user.username}}</h3>
+                    <p>@{{user.username}}</p>
+                    {% if request.user == user %}
+                    <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
+                    {% endif %}
+                </div>
+
+                <div class="profile__about">
+
+
+                    <!-- Chart data here -->
+                    <!-- add text fields so user can talk about their project -->
+
+                    <h3 align="center">About</h3>
+                    <p align="center">
+                        {{user.bio}}
+                    </p>
+                    <br>
+                    <br>
+                    <style type="text/css">
+                        .chartBox{
+                        width: 700px;
+                        }
+                    </style>
+                    <div class="chartBox">
+    <canvas id="myChart"></canvas>
+    </div>
+                    <script>
+
+                    const data = {
+            datasets: [{
+                label: 'Saturation Percentage',
+                data: [
+                {x: '2022-06-25', y: 20},
+                {x: '2022-06-26', y: 28},
+                {x: '2022-06-27', y: 56},
+                {x: '2022-06-28', y: 30},
+                {x: '2022-06-29', y: 10},
+                {x: '2022-06-30', y: 90}
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+    };
+
+        const config =  {
+        type: 'line',
+        data,
+        options: {
+            scales: {
+            x: {
+            parsing: false,
+                type: 'time',
+                time: {
+                    unit: 'hour'
+
+                }
+            },
+                y: {
+                beginAtZero: true
+                }
+            }
+        }
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+                    </script>
+
+
+                </div>
+
             </div>
-          </div>
-          <div class="profile__info">
-            <h3>{{user.username}}</h3>
-            <p>@{{user.username}}</p>
-            {% if request.user == user %}
-            <a href="{% url 'update-user' %}" class="btn btn--main btn--pill">Edit Profile</a>
-            {% endif %}
-          </div>
-          <div class="profile__about">
-            <h3>About</h3>
-            <p>
-            {{message.user}}
-            </p>
-          </div>
-        </div>
 
-        <div class="roomList__header">
+            <div class="roomList__header">
 
 
-          <!-- This is where i want to add the data charts for my users raspberrypi stuff. -->
+                <!-- This is where I want to add the data charts for my users raspberrypi stuff. -->
 
+
+            </div>
 
         </div>
-      {% include 'base/feed_base.html' %}
-      </div>
-      <!-- Room List End -->
-
-      <!-- Activities Start -->
-      {% include 'base/activity_base.html' %}
-      <!-- Activities End -->
-  </div>
+        <!-- Room List End -->
+        <!-- Activities Start -->
+            {% include 'base/activity_base.html' %}
+        <!-- Activities End -->
+    </div>
 </main>
 {% endblock content %}
