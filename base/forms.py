@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
 
-from .models import Room, User
+from .models import Room, User, rpiData
 
 
 class MyUserCreationForm(UserCreationForm):

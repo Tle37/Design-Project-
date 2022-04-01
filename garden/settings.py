@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--ei2s9-e&fk$9%#1dm3zg6hr6^xyjil#l)-e051um&fpit7xe@
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+#'www.tonyvanle.jwuclasses.com'
 # Application definition
 
 INSTALLED_APPS = [
@@ -115,6 +115,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+#STATIC_ROOT = '/home/tonyvanle/tonyvanle.jwuclasses.com/public/static/'
+
 MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [

@@ -48,3 +48,15 @@ class Message(models.Model):
     def __str__(self):
         return self.body[0:50]
 
+
+class rpiData(models.Model):
+    serial = models.CharField(max_length=50, null=True)
+    saturation = models.IntegerField()
+    temperature = models.IntegerField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.serial
+
+
+

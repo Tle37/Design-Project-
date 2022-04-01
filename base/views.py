@@ -5,7 +5,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .forms import RoomForm, UserForm, MyUserCreationForm
 from .models import Room, Topic, Message, User
 
@@ -211,4 +210,6 @@ def weather(request):
             "weather_icon": None,
         }
     return render(request, 'base/weather.html', {"zip_code": zip_code, "datas": datas})
-
+#
+#
+#
